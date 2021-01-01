@@ -13,8 +13,8 @@ exports.automaticallySaveUserToFirestore = functions.auth.user().onCreate(async 
         let userData = {
             id: userId,
             username: username,
-            createdAt: admin.firestore.FieldValue.serverTimestamp(),
-            updatedAt: admin.firestore.FieldValue.serverTimestamp()
+            created: admin.firestore.FieldValue.serverTimestamp(),
+            updated: admin.firestore.FieldValue.serverTimestamp()
         };
 
         // firestore
