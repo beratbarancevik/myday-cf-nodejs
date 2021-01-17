@@ -10,7 +10,7 @@ exports.automaticallySaveUserToFirestore = functions.auth.user().onCreate(async 
     try {
         const userId = user.uid;
         const username = generateRandomUsername();
-        let userData = {
+        const userData = {
             id: userId,
             username: username,
             created: admin.firestore.FieldValue.serverTimestamp(),
@@ -26,7 +26,7 @@ exports.automaticallySaveUserToFirestore = functions.auth.user().onCreate(async 
         connection.release();
         return;
     } catch (err) {
-        console.error(`User sign up error for userId: ${user.userId}`, err);
+        console.error(`User sign up error for userId: ${user.uid}`, err);
         return;
     }
 });
