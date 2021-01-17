@@ -42,10 +42,10 @@ const generateRandomUsername = () => {
 
 const addUserToMySQL = (connection, user) => {
     return new Promise((resolve, reject) => {
-        const query = `INSERT INTO user (id, username) VALUES ('${user.userId}', '${user.username}')`;
+        const query = `INSERT INTO user (id, username) VALUES ('${user.id}', '${user.username}')`;
         connection.query(query, (err, results, fields) => {
             if (err) {
-                console.error(`Error creating user in MySQL for userId: ${user.userId}`, err);
+                console.error(`Error creating user in MySQL for userId: ${user.id}`, err);
                 reject(err);
                 return;
             } else {
